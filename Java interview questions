@@ -1,0 +1,113 @@
+-------------Java Interview Questions----------------------
+
+1.what is the difference between JDK, JVM and JRE ?
+2.Difference between POST, PUT and PATCH ?
+3.features of Java8 ?
+4. sort the map by value using both Java 1.7 and 1.8 ?
+5. purpose of filter and predicate?
+6.stream class peek method ?
+7. what methods have you used in stream class ?
+8.print the hashmap key & value using streams?
+9.print the concatenation of an array using streams?
+10 where have you used map() ?
+11. how to connect to DB from your application ?
+12. how to connect to DB in springboot ?
+13. JPA repository ?
+14.difference between HashTable and HashMap ?
+15. questions on threads
+16. unreachable catch block error in exception handling ?
+17.how will you create complete registration service in springboot? explain the complete architecture ?
+18. function to insert record into DB?
+19. identify the table by defining an entity ?
+20. if we want to generate a PK from sequence what we need to do ?
+21. purpose of @Autowire, @Component and @Service
+22. what is dependency injection ?
+23. have you enabled caching mechanism in hibernate?
+24. display the record on  web page, create a sample web appln using springboot?
+25. where will you define dispatcher servlet?
+26. where do you use view resolver ?
+27. multithreading?
+28. thread synchronization ? how can we achieve them ?
+29. what is the concept of synchronization?
+30. diff between synchronized method and synchronized block
+31. serialization and transient keyword
+32. what is immutable object ?
+
+
+
+
+1.What is Java?
+Explain the key features of Java and why it's platform-independent.
+2.What are JDK, JRE, and JVM?
+Differences between Java Development Kit (JDK), Java Runtime Environment (JRE), and Java Virtual Machine (JVM).
+3.What are the main principles of Object-Oriented Programming (OOP)?
+Briefly explain Encapsulation, Inheritance, Polymorphism, and Abstraction.
+4.What is the difference between == and .equals()?
+Discuss the difference in comparing object references and actual content.
+5.Explain the difference between ArrayList and LinkedList.
+Describe the internal structure and use cases for both.
+6.What are the access specifiers in Java?
+Discuss public, private, protected, and default access modifiers.
+7.What is a constructor in Java?
+Explain the role of a constructor and the difference between default and parameterized constructors.
+Intermediate Level:
+8.What is the difference between method overloading and method overriding?
+Discuss with examples.
+9.What is the difference between final, finally, and finalize()?
+10.What is a static method?
+When should a method be declared as static, and what are its limitations?
+11.What is the difference between an interface and an abstract class?
+Explain with examples when to use which.
+12.Explain exception handling in Java.
+13.Difference between Checked and Unchecked exceptions and how to handle them.
+14.What are design patterns?
+Describe commonly used patterns like Singleton, Factory, and Observer.
+15.What is the transient keyword in Java?
+
+Advanced Level:
+1.What is the Java Memory Model (JMM)?
+Explain the heap, stack, and garbage collection in Java.
+2.Explain the significance of volatile keyword.
+3.How does it differ from synchronized?
+4.How does Java handle multi-threading?
+Explain how thread management, thread lifecycle, and synchronization work in Java.
+5.What are the differences between HashMap, TreeMap, and LinkedHashMap?
+6.What is a ClassLoader in Java?
+Explain different types of ClassLoaders and how the delegation model works.
+7.Explain the concept of Functional Interfaces and Lambda expressions.
+8.How do they simplify code in Java 8 and beyond?
+9.What is ExecutorService and how do you use it?
+ 
+ 
+10.What is Dependency Injection (DI)?
+11.How does Spring use DI to manage application components?
+12.What are Spring Beans?
+13.Explain the lifecycle and scope of beans in Spring.
+14.What is the difference between @Component, @Service, @Repository, and @Controller annotations?
+15.How does Spring handle transactions?
+16.Explain @Transactional and its propagation types.
+17.What is Hibernate and how is it different from JDBC?
+ Discuss ORM and how Hibernate handles object-relational mapping.
+19.Explain Lazy Initialization and Eager Loading in Hibernate.
+20.What is Spring Boot?
+21.What makes it different from the traditional Spring Framework?
+ 
+ 
+23.What is the difference between synchronized and Lock in Java?
+24.What is the purpose of the ForkJoinPool framework?
+25.What are CountDownLatch and CyclicBarrier?
+Discuss their use cases in Java concurrency.
+26.How does ConcurrentHashMap work internally?
+ 
+ 
+Java 8 Features:
+27.What are the new features introduced in Java 8?
+Discuss lambda expressions, streams, default methods, and Optional class.
+28.What is the difference between Stream.map() and Stream.flatMap()?
+29.What is the Optional class and how is it used?
+30.How do you parallelize a stream in Java 8?
+Discuss parallelStream() and when to use it.
+
+
+
+
