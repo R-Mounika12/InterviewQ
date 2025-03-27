@@ -1,0 +1,186 @@
+Springboot annoatations
+
+@Entity --> represents the class is an entity, means the class is mapped to table in DB.
+@Table --> used to specify the table in Database, that the entity maps to
+by default JPA will map the entity class to table in DB with the same name, however the @Table annoataion allows to
+-customize the table name
+-Define additional table properties like unique constraints and schema
+
+@Data --> comes from springboot Lombok, which will automatically generates the essential  methods for your class at compile time
+-- it combines of several other lombok annoatations,
+-@Getter --generates getter for all fileds
+-@Setter -- generates setter for all non-final fileds
+-@RequiredArgConstructor --generates constructor for all final fileds
+-@ToString -- generates to toString() 
+-@EqualsAndHashCode --generates equals and hascode methods
+
+
+toString() --> is a string representation of object.
+-it is defined in object class, which all java classes inherit by default.
+-if we don't override, the output of the toString() method would be 
+<className>@<hexdecimal represenatation of object's hashcode>
+
+equals() --> is used to compare the contents of two objects to determine if the two are logically equla or not
+default behaviour --> checks the memeory reference of the object
+public boolean equals(Object obj) {
+	return (this == obj);
+}
+
+hashcode() --> return an integer value primarily used in hash based collections
+default behaviour
+public native int hashcode();
+Hash codes are used to efficiently store and retrieve objects in data structures that use hashing.
+
+How Hashing Works in Collections (Example: HashMap)
+Hash Calculation: When an object is inserted, its hash code is computed using hashCode().
+Bucket Assignment: The hash code determines which bucket (index) the object will be stored in.
+Efficient Retrieval: To retrieve an object, the hash code is computed, and the correct bucket is searched.
+
+@Repository --> annotation represents a perticular class provides a machanism to access, store and retrive the data from DB
+-Acts as a specilization of @Component - allowing the Spring to detect and manage the class as a bean during ComponentScanning.
+-converts the JPA related exception into Springs DataAccessException making the error handling more managable
+
+@Service --> is specialization of component and represents the perticular class provides the business logic or 
+service operations in the application
+
+Purpose of @Service
+-Marks a class as a service provider.
+-Allows Spring to manage the class as a Bean.
+-Facilitates loose coupling between the controller and data access layers by encapsulating business logic.
+
+@Slf4j -> simple logging facade for java --> it automates the creation of logger feild named log within the calss, facilitates
+logging of messages
+
+@Autowired --> annoatation is used for dependency injection, it allows the spring to automatically inject 
+the required dependencies into a class, reducing the manual object creation
+
+it supports constructor, feild and setter injection 
+
+constructor based injection:
+--injects the depencies during the object creation
+--works well with immutable fields
+--@Autowired is optional when there is only one constructor
+--encorages better testability
+
+@Service
+public class UserService {
+
+	private final UserRepository userRepository;
+	
+	@Autowired
+	public UserService(UserRepository userRepository) {
+		this.userRepository = userRepositroy;
+	}
+	
+	public List<User> findAll() {
+		return	this.userRepository.findAll();
+	}
+
+}
+
+field based injection: 
+-is list preferred because it makes the unit testing harder(cannot inject mocks easily)
+-hides the depencies from the constructor
+
+@Service
+public class UserService {
+
+	@Autowired
+	private UserRepository userRepository;
+	
+	public List<User> findAll() {
+		return this.userRepository.findAll();
+	}
+}
+
+Setter based injection
+-useful when we want to change the dependencies after object creation
+-this dependency is optional
+
+@Service
+public class UserService {
+
+	private UserRepository userRepository;
+	
+	@Autowired
+	public void setUserRepository(UserRepository userRepository){
+		this.userRepository = userRepository;
+	}
+	public List<User> findAll() {
+		return this.userRepository.findAll();
+	}
+}
+
+when dealing with the optional dependencies {@Autowired(required = false)}
+
+how @Autowired works internally
+Spring resolves the depencies by checking
+-by Type --> finds the bean of the same type
+-by Qualifier --> used when multiple beans of same type exists.
+
+
+Annotations used in controller
+@RestController  
+-used to create the Restful webservices by serializing the java object into Json(or XML) response.
+-combines @Controller and @ResponseBody, so the methods return josn instead of view
+-eliminates the need of @ResponseBody in everyMethod
+@ResponseBody --> converts the Java objects into Json responses
+
+
+@RestController --> returns Json/Xml (Restful API)
+@Controller    --> returns view (html, JSP, tymleaf etc)
+
+@RequestMapping 
+-is used to map the HTTP requests into specific controller methods or class.
+-can be used as both class-level and method-level define API endpoints
+-by default it handles all HTTp methods(GET, PUT, POST, DELETE etc)
+-to specify method, need use "method" attribute
+
+shorthabd annotations for specific HTTP methods are
+@GetMapping("/get")
+@PostMapping("/post")
+@PutMapping("/put")
+@DeleteMapping("/delete")
+
+@PathVariable
+-used to extract the dynamic value from the URL
+
+@RequestParam
+--use to pass parameters in the URL query
+
+@ResponseEntity
+-is a powerful feature in Springboot which represents the entire HTTP response
+it provides
+-status
+-headers
+-body(payload)
+
+
+@SpringbootApplication
+-@Configuartion --> marks the class as a source of bean definations
+-@EnableAutoConfiguration --> automatically configures the springboot based on the dependencies present in the classPath
+For example, if Spring Boot detects Spring MVC, it configures an embedded Tomcat server.
+If Spring Data JPA is found, it configures a database connection.
+-@ComponentScan --> Scans the Spring components(@Component, @Service, @Repository, @Controller) in packages and subpackages.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
