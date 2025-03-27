@@ -26,7 +26,7 @@ public boolean equals(Object obj) {
 	return (this == obj);
 }
 
-hashcode() --> return an integer value primarily used in hash based collections
+hashcode() --> return an integer value primarily used in hash based collections(turns the memory reference of an object in integer form)
 default behaviour
 public native int hashcode();
 Hash codes are used to efficiently store and retrieve objects in data structures that use hashing.
@@ -79,8 +79,8 @@ public class UserService {
 }
 
 field based injection: 
--is list preferred because it makes the unit testing harder(cannot inject mocks easily)
--hides the depencies from the constructor
+-is least preferred because it makes the unit testing harder(cannot inject mocks easily)
+-hides the dependencies from the constructor
 
 @Service
 public class UserService {
@@ -136,7 +136,7 @@ Annotations used in controller
 -by default it handles all HTTp methods(GET, PUT, POST, DELETE etc)
 -to specify method, need use "method" attribute
 
-shorthabd annotations for specific HTTP methods are
+shorthand annotations for specific HTTP methods are
 @GetMapping("/get")
 @PostMapping("/post")
 @PutMapping("/put")
@@ -150,7 +150,8 @@ shorthabd annotations for specific HTTP methods are
 
 @ResponseEntity
 -is a powerful feature in Springboot which represents the entire HTTP response
-it provides
+it 
+
 -status
 -headers
 -body(payload)
